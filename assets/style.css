@@ -349,6 +349,9 @@ h3 {
   background: linear-gradient(135deg, #f59e0b, #fbbf24);
   font-size: 0.82rem;
 }
+.cert-icon-comptia {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
 .cert-card:hover {
   border-color: var(--accent);
   transform: translateY(-3px);
