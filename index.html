@@ -5,29 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parambir Singh — VoIP / Telecom Systems Engineer</title>
 <meta name="description" content="VoIP & Telecom Systems Engineer — SIP, RTP, FreeSWITCH, Kamailio, Asterisk, Cloud PBX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<header class="hero">
+<canvas id="net-bg"></canvas>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-logo">Param<span>.</span></a>
+    <div class="nav-links">
+      <a href="#summary">Summary</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="https://github.com/Param-Cloudtelecom" target="_blank">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
   <div class="container">
-    <p class="prompt">$ whoami</p>
+    <p class="prompt"><span class="prompt-text" id="typed-prompt"></span><span class="cursor">_</span></p>
     <h1>Parambir Singh</h1>
-    <h2>VoIP / Telecom Systems Engineer</h2>
+    <h2><span class="grad-text">VoIP</span> / Telecom Systems Engineer</h2>
     <p class="tagline">
       Architecting, securing, and scaling cloud-based telecom systems —
       from raw SIP/RTP packets to multi-tenant Cloud PBX orchestration.
     </p>
     <div class="links">
-      <a href="https://github.com/Param-Cloudtelecom" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/parambir-singh-3b9a80bb/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Param-Cloudtelecom" target="_blank" class="btn btn-primary">GitHub →</a>
+      <a href="https://www.linkedin.com/in/parambir-singh-3b9a80bb/" target="_blank" class="btn">LinkedIn</a>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Years in VoIP</span></div>
+      <div class="stat"><span class="stat-num">11</span><span class="stat-label">OSS Projects</span></div>
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Telecom Platforms</span></div>
+      <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Uptime Mindset</span></div>
     </div>
   </div>
+  <div class="scroll-cue">scroll <span>↓</span></div>
 </header>
 
 <main class="container">
 
-  <section id="summary">
+  <section id="summary" class="reveal">
     <h3>// Summary</h3>
     <p>
       VoIP engineer with deep expertise in architecting, securing, and scaling
@@ -49,7 +75,28 @@
     </p>
   </section>
 
-  <section id="skills">
+  <section id="approach" class="reveal">
+    <h3>// How I Work</h3>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <span class="approach-icon">01</span>
+        <h4>Diagnose at the packet level</h4>
+        <p>I don't guess at call quality issues — I capture, read the SIP ladder, and find the actual root cause before touching config.</p>
+      </div>
+      <div class="approach-card">
+        <span class="approach-icon">02</span>
+        <h4>Defense in depth</h4>
+        <p>Every system I build has at least two independent layers protecting it — a fast path and a slow path, never a single point of failure.</p>
+      </div>
+      <div class="approach-card">
+        <span class="approach-icon">03</span>
+        <h4>Document the why, not just the what</h4>
+        <p>Config without reasoning rots. Every repo I ship explains the trade-off behind each decision, not just the syntax.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
     <h3>// Skills</h3>
     <div class="skill-grid">
       <div class="skill-group">
@@ -58,75 +105,112 @@
       </div>
       <div class="skill-group">
         <h4>Platforms</h4>
-        <ul><li>FreeSWITCH</li><li>Asterisk</li><li>Kamailio</li><li>pjsip</li><li>Multi-tenant Cloud PBX</li></ul>
+        <ul><li>FreeSWITCH</li><li>Asterisk</li><li>Kamailio</li><li>pjsip</li><li>2600Hz / KAZOO</li><li>Multi-tenant Cloud PBX</li></ul>
       </div>
       <div class="skill-group">
         <h4>Diagnostics</h4>
         <ul><li>Wireshark / tshark</li><li>sngrep</li><li>Homer (HEP)</li><li>PCAP analysis</li><li>SIP ladder debugging</li></ul>
       </div>
       <div class="skill-group">
+        <h4>Security &amp; Network</h4>
+        <ul><li>Fortinet / FortiGate</li><li>Cloudflare Tunnel / Zero Trust</li><li>fail2ban</li><li>Fraud/ghost-call detection</li></ul>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud &amp; Infra</h4>
+        <ul><li>AWS (API Gateway, Lambda, DynamoDB)</li><li>Docker</li><li>Linux administration</li><li>PostgreSQL</li></ul>
+      </div>
+      <div class="skill-group">
         <h4>Engineering</h4>
-        <ul><li>C programming</li><li>Python</li><li>REST APIs</li><li>Docker</li><li>Linux administration</li><li>PostgreSQL</li><li>AWS (API Gateway, Lambda)</li></ul>
+        <ul><li>C programming</li><li>Python</li><li>REST APIs</li><li>Telecom automation</li></ul>
       </div>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="reveal">
     <h3>// Featured Projects</h3>
     <div class="project-grid">
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/kamailio-sbc-router" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>kamailio-sbc-router</h4>
         <p>Multi-tenant SIP Session Border Controller: NAT traversal via rtpengine, TLS/SRTP termination, carrier failover via dispatcher.</p>
         <span class="tag">Kamailio</span><span class="tag">SBC</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/freeswitch-cloud-pbx" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>freeswitch-cloud-pbx</h4>
         <p>Multi-tenant FreeSWITCH dialplan, ESL-driven REST automation API, and a real-time CDR pipeline into PostgreSQL.</p>
         <span class="tag">FreeSWITCH</span><span class="tag">REST API</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/pjsip-sip-diagnostics" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>pjsip-sip-diagnostics</h4>
         <p>A pjsua2-based SIP diagnostic client: registration latency, call setup time, and live RTP jitter/loss stats.</p>
         <span class="tag">pjsip</span><span class="tag">Diagnostics</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/aws-mobile-call-api" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>aws-mobile-call-api</h4>
         <p>Serverless API Gateway + Lambda + DynamoDB backend for a mobile Cloud PBX app's click-to-call and call history.</p>
         <span class="tag">AWS</span><span class="tag">Serverless</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/telecom-stack-docker" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>telecom-stack-docker</h4>
         <p>Containerized telecom stack: Kamailio + FreeSWITCH + PostgreSQL + Homer (HEP) call-flow monitoring.</p>
         <span class="tag">Docker</span><span class="tag">Infra</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/linux-voip-ops-toolkit" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>linux-voip-ops-toolkit</h4>
         <p>Trunk health checks, rotating SIP packet capture, system health reports, and automated CDR backups.</p>
         <span class="tag">Linux</span><span class="tag">Ops</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/kazoo-crossbar-client" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>kazoo-crossbar-client</h4>
         <p>A Python client for 2600Hz's KAZOO platform Crossbar REST API — accounts, devices, and call origination.</p>
         <span class="tag">2600Hz / Kazoo</span><span class="tag">API Client</span>
       </a>
 
       <a class="project-card" href="https://github.com/Param-Cloudtelecom/ghost-call-defense" target="_blank">
+        <div class="project-card-glow"></div>
         <h4>ghost-call-defense</h4>
         <p>Detection and mitigation for nuisance/ghost SIP calls and scanning traffic at the SBC layer.</p>
         <span class="tag">Security</span><span class="tag">Kamailio</span>
       </a>
 
+      <a class="project-card" href="https://github.com/Param-Cloudtelecom/fortinet-voip-firewall" target="_blank">
+        <div class="project-card-glow"></div>
+        <h4>fortinet-voip-firewall</h4>
+        <p>FortiGate config for SIP/RTP: the SIP ALG problem, firewall policy, and voice traffic QoS prioritization.</p>
+        <span class="tag">Fortinet</span><span class="tag">Network Security</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Param-Cloudtelecom/cloudflare-tunnel-voip-access" target="_blank">
+        <div class="project-card-glow"></div>
+        <h4>cloudflare-tunnel-voip-access</h4>
+        <p>Secure Cloud PBX admin access via a named Cloudflare Tunnel + Access (Zero Trust) policy — no exposed admin port.</p>
+        <span class="tag">Cloudflare</span><span class="tag">Zero Trust</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/Param-Cloudtelecom/voip-phone-provisioning-guides" target="_blank">
+        <div class="project-card-glow"></div>
+        <h4>voip-phone-provisioning-guides</h4>
+        <p>Auto-provisioning guides + example configs for Yealink, Cisco, Grandstream, Avaya, and Snom desk phones.</p>
+        <span class="tag">Provisioning</span><span class="tag">Multi-vendor</span>
+      </a>
+
     </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="reveal">
     <h3>// Experience</h3>
 
     <div class="job">
@@ -162,7 +246,7 @@
     </div>
   </section>
 
-  <section id="education">
+  <section id="education" class="reveal">
     <h3>// Education</h3>
     <p><strong>B.E., Electrical and Electronics Engineering</strong> — Sant Longowal Institute of Engineering and Technology (2014 – 2018)</p>
   </section>
@@ -175,5 +259,6 @@
   </div>
 </footer>
 
+<script src="assets/script.js"></script>
 </body>
 </html>
