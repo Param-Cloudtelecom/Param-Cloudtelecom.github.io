@@ -1,14 +1,18 @@
 :root {
-  --bg: #0a0e12;
+  --bg: #07090d;
   --bg-alt: #10161b;
   --bg-card: #131a20;
-  --fg: #e3edf0;
+  --fg: #e9f2f4;
   --muted: #8b9ba1;
   --accent: #2dd4bf;
   --accent-2: #38bdf8;
+  --accent-3: #a78bfa;
+  --accent-4: #f472b6;
   --accent-dim: #1c8f82;
   --border: #1f2a31;
   --glow: rgba(45, 212, 191, 0.35);
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 * { box-sizing: border-box; }
@@ -22,6 +26,54 @@ body {
   font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.65;
   position: relative;
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.55;
+}
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+.blob-1 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  top: -120px; left: -80px;
+  animation: drift1 22s ease-in-out infinite;
+}
+.blob-2 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, var(--accent-3), transparent 70%);
+  top: 40px; right: -100px;
+  animation: drift2 26s ease-in-out infinite;
+}
+.blob-3 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, var(--accent-4), transparent 70%);
+  top: 320px; left: 38%;
+  animation: drift3 30s ease-in-out infinite;
+}
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+}
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, 60px) scale(0.95); }
+}
+@keyframes drift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -50px) scale(1.08); }
 }
 
 #net-bg {
@@ -80,9 +132,9 @@ a:hover { text-decoration: underline; }
   padding: 16px 24px;
 }
 .nav-logo {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--fg);
   text-decoration: none;
 }
@@ -118,20 +170,32 @@ a:hover { text-decoration: underline; }
 @keyframes blink { 50% { opacity: 0; } }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  margin: 0 0 6px;
   letter-spacing: -0.02em;
-  font-weight: 800;
+  font-weight: 700;
+  background: linear-gradient(100deg, var(--fg) 30%, var(--accent) 50%, var(--accent-3) 65%, var(--fg) 85%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-text 8s ease-in-out infinite;
+}
+@keyframes shimmer-text {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
 }
 
 .hero h2 {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
   font-weight: 600;
   color: var(--fg);
   margin: 0 0 20px;
 }
 .grad-text {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: linear-gradient(135deg, var(--accent), var(--accent-2), var(--accent-3));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -212,6 +276,10 @@ a:hover { text-decoration: underline; }
   0%, 100% { text-shadow: 0 0 0 transparent; }
   50% { text-shadow: 0 0 16px var(--glow); }
 }
+.stat-c1 { color: var(--accent); }
+.stat-c2 { color: var(--accent-2); }
+.stat-c3 { color: var(--accent-3); }
+.stat-c4 { color: var(--accent-4); }
 .stat-label {
   font-size: 0.8rem;
   color: var(--muted);
@@ -277,7 +345,7 @@ h3 {
   font-weight: 700;
   opacity: 0.6;
 }
-.approach-card h4 { margin: 10px 0 8px; font-size: 1rem; }
+.approach-card h4 { font-family: var(--font-display); margin: 10px 0 8px; font-size: 1.05rem; }
 .approach-card p { margin: 0; color: var(--muted); font-size: 0.88rem; }
 
 /* ---------- Skills ---------- */
@@ -374,7 +442,7 @@ h3 {
   color: #06201c;
   box-shadow: 0 0 18px var(--glow);
 }
-.cert-info h4 { margin: 0 0 4px; font-size: 1rem; color: var(--fg); }
+.cert-info h4 { font-family: var(--font-display); margin: 0 0 4px; font-size: 1.05rem; color: var(--fg); }
 .cert-info p { margin: 0; color: var(--muted); font-size: 0.85rem; }
 
 /* ---------- Projects ---------- */
@@ -388,15 +456,31 @@ h3 {
   position: relative;
   display: block;
   padding: 20px;
-  border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--bg-card);
   color: var(--fg);
   overflow: hidden;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border);
 }
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 1px;
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-3), var(--accent-4), var(--accent-2), var(--accent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: spin-border 4s linear infinite;
+  pointer-events: none;
+}
+.project-card:hover::before { opacity: 1; }
+@keyframes spin-border { to { filter: hue-rotate(360deg); } }
 .project-card:hover {
-  border-color: var(--accent);
   text-decoration: none;
   transform: translateY(-4px);
   box-shadow: 0 8px 28px -8px var(--glow);
@@ -414,10 +498,10 @@ h3 {
 .project-card:hover .project-card-glow { opacity: 1; }
 
 .project-card h4 {
+  font-family: "JetBrains Mono", monospace;
   margin: 0 0 8px;
   color: var(--accent);
-  font-size: 1.02rem;
-  font-family: "JetBrains Mono", monospace;
+  font-size: 1.05rem;
 }
 .project-card p {
   margin: 0 0 14px;
@@ -446,7 +530,7 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
 }
-.job-head h4 { margin: 0; font-size: 1.05rem; }
+.job-head h4 { font-family: var(--font-display); margin: 0; font-size: 1.1rem; }
 .job-date { color: var(--muted); font-size: 0.85rem; font-family: "JetBrains Mono", monospace; }
 .job-org { color: var(--accent-dim); margin: 4px 0 8px; font-size: 0.9rem; }
 .job ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 0.92rem; }
