@@ -89,6 +89,37 @@ function draw() {
 }
 draw();
 
+// --- Cursor-following spotlight glow ---
+const spotlight = document.getElementById("spotlight");
+let spotlightVisible = false;
+window.addEventListener("mousemove", (e) => {
+  spotlight.style.left = e.clientX + "px";
+  spotlight.style.top = e.clientY + "px";
+  if (!spotlightVisible) {
+    spotlight.style.opacity = "1";
+    spotlightVisible = true;
+  }
+});
+window.addEventListener("mouseleave", () => {
+  spotlight.style.opacity = "0";
+  spotlightVisible = false;
+});
+
+// --- 3D tilt effect on project/approach cards ---
+document.querySelectorAll(".project-card, .approach-card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateX = ((y - rect.height / 2) / rect.height) * -6;
+    const rotateY = ((x - rect.width / 2) / rect.width) * 6;
+    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
+});
+
 // --- Smooth scroll for nav links ---
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (e) => {
