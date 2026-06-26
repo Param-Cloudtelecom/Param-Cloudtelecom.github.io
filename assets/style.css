@@ -175,17 +175,16 @@ a:hover { text-decoration: underline; }
   margin: 0 0 6px;
   letter-spacing: -0.02em;
   font-weight: 700;
-  animation: led-blink 4.2s steps(1) infinite;
+  background: linear-gradient(100deg, var(--fg) 30%, var(--accent) 50%, var(--accent-3) 65%, var(--fg) 85%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-text 8s ease-in-out infinite;
 }
-@keyframes led-blink {
-  0%   { color: #ff3b3b; text-shadow: 0 0 18px #ff3b3baa, 0 0 40px #ff3b3b55; }
-  14%  { color: #ff9d2f; text-shadow: 0 0 18px #ff9d2faa, 0 0 40px #ff9d2f55; }
-  28%  { color: #ffe23b; text-shadow: 0 0 18px #ffe23baa, 0 0 40px #ffe23b55; }
-  42%  { color: #39ff6a; text-shadow: 0 0 18px #39ff6aaa, 0 0 40px #39ff6a55; }
-  57%  { color: #38bdf8; text-shadow: 0 0 18px #38bdf8aa, 0 0 40px #38bdf855; }
-  71%  { color: #6c5bff; text-shadow: 0 0 18px #6c5bffaa, 0 0 40px #6c5bff55; }
-  85%  { color: #f472b6; text-shadow: 0 0 18px #f472b6aa, 0 0 40px #f472b655; }
-  100% { color: #ff3b3b; text-shadow: 0 0 18px #ff3b3baa, 0 0 40px #ff3b3b55; }
+@keyframes shimmer-text {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
 }
 
 .hero h2 {
