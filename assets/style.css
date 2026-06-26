@@ -327,6 +327,44 @@ h3 {
   transform: translateY(-2px);
 }
 
+/* ---------- Certifications ---------- */
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--bg-card), rgba(45,212,191,0.04));
+  color: var(--fg);
+  max-width: 560px;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cert-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -10px var(--glow);
+  text-decoration: none;
+}
+.cert-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent-dim), var(--accent-2));
+  color: #06201c;
+  box-shadow: 0 0 18px var(--glow);
+}
+.cert-info h4 { margin: 0 0 4px; font-size: 1rem; color: var(--fg); }
+.cert-info p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
 /* ---------- Projects ---------- */
 .project-grid {
   display: grid;
